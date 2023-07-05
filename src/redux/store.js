@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import  contactsSlice  from '../redux/contactsSlice';
+import contactsSlice from '../redux/contactsSlice';
 import { filterSlice } from '../redux/filterSlice';
 
 // Store

@@ -13,19 +13,17 @@ const handleRejected = (state, action) => {
 export const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
-    contacts: {
-      items: [],
-      isLoading: false,
-      error: null,
-    },
+    items: [],
+    isLoading: false,
+    error: null,
   },
   extraReducers: {
     [fetchContacts.pending]: handlePending,
 
     [fetchContacts.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.contacts = action.payload;
+      state.contacts.isLoading = false;
+      state.contacts.error = null;
+      state.contacts.items = action.payload;
     },
   },
 });

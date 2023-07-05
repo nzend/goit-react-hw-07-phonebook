@@ -4,9 +4,13 @@ import Form from '../Form/Form';
 import { ContactsList } from '../ContactsList/ContactsList';
 import { Filter } from '../Filter/Filter';
 import { useSelector } from 'react-redux';
-import { fetchContacts } from '../../redux/operations';
+import { async } from 'q';
+axios.defaults.baseURL =
+  'https://649d76829bac4a8e669dc70a.mockapi.io/phonebook/';
 
-fetchContacts();
+ 
+
+
 
 const App = () => {
   // const contacts = useSelector(state => state.contacts.contacts);

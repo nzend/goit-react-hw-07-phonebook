@@ -6,9 +6,9 @@ axios.defaults.baseURL =
 
 export const fetchContacts = createAsyncThunk('contacts/fetchAll', async () => {
   try {
-    const response = await axios.get('/contacts');
-    console.log(response.data);
-    return response.data;
+    await axios.get('/contacts').then(response => {
+      return response.data;
+    });
   } catch (error) {
     console.log(error);
   }
