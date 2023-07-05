@@ -4,23 +4,18 @@ import Form from '../Form/Form';
 import { useEffect } from 'react';
 import { ContactsList } from '../ContactsList/ContactsList';
 import { Filter } from '../Filter/Filter';
+import  Loader  from "../Loader/Loader";
 
 import { fetchContacts } from '../../redux/operations';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectContacts, selectError, selectIsLoading } from 'redux/selectors';
 
-// axios.defaults.baseURL =
-//   'https://649d76829bac4a8e669dc70a.mockapi.io/phonebook/';
 
-// export async function getContacts() {
-//   const response = await axios.get('/contacts');
-//   return response.data;
-// }
-
-// getContacts();
 
 const App = () => {
-  const contacts = true;
-  // const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(selectContacts)
+  const isLoading = useSelector(selectIsLoading)
+  const error = useSelector(selectError)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,7 +28,8 @@ const App = () => {
         Phone<span className={css.titlePart}>book</span>
       </h1>
       <Form></Form>
-      {contacts ? (
+      
+      {contacts.length > 0 ? (
         <>
           <h2 className={css.contactsTitle}>Contacts</h2>
           <Filter />
@@ -42,6 +38,7 @@ const App = () => {
       ) : (
         <p className={css.empty__notification}>The contact list is empty</p>
       )}
+      {isLoading && !error && <Loader/>}
     </div>
   );
 };

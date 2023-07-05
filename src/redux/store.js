@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import contactsSlice from '../redux/contactsSlice';
-import { filterSlice } from '../redux/filterSlice';
+import filterSlice from '../redux/filterSlice';
 
 // Store
 export const store = configureStore({
@@ -9,5 +9,3 @@ export const store = configureStore({
     filter: filterSlice,
   },
 });
-
-console.log(store.getState().contacts.items);
