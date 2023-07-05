@@ -1,6 +1,6 @@
 import css from './Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
+// import { addContact } from '../../redux/contactsSlice';
 
 const Form = () => {
   const contacts = useSelector(state => state.contacts.contacts);
@@ -20,7 +20,7 @@ const Form = () => {
       return;
     }
 
-    dispatch(addContact(contact));
+    // dispatch(addContact(contact));
 
     e.currentTarget.reset();
   };
