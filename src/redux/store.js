@@ -9,3 +9,5 @@ export const store = configureStore({
     filter: filterSlice,
   },
 });
+
+console.log(store.getState().contacts.items);
