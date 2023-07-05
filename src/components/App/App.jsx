@@ -6,21 +6,12 @@ import { ContactsList } from '../ContactsList/ContactsList';
 import { Filter } from '../Filter/Filter';
 
 import { fetchContacts } from '../../redux/operations';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-// axios.defaults.baseURL =
-//   'https://649d76829bac4a8e669dc70a.mockapi.io/phonebook/';
 
-// export async function getContacts() {
-//   const response = await axios.get('/contacts');
-//   return response.data;
-// }
-
-// getContacts();
 
 const App = () => {
   const contacts = true;
-  // const contacts = useSelector(state => state.contacts.contacts);
   const dispatch = useDispatch();
 
   useEffect(() => {
