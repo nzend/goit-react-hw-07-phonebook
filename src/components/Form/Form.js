@@ -1,9 +1,10 @@
 import css from './Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-// import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/operations';
+import { selectContacts } from '../../redux/selectors';
 
 const Form = () => {
-  const contacts = useSelector(state => state.contacts.contacts);
+  let contacts = useSelector(selectContacts);
 
   const dispatch = useDispatch();
 
@@ -12,7 +13,7 @@ const Form = () => {
 
     const contact = {
       name: e.target.name.value,
-      number: e.target.number.value,
+      phone: e.target.number.value,
     };
 
     if (contacts.find(contact => contact.name === e.target.name.value)) {
@@ -20,7 +21,7 @@ const Form = () => {
       return;
     }
 
-    // dispatch(addContact(contact));
+    dispatch(addContact(contact));
 
     e.currentTarget.reset();
   };
